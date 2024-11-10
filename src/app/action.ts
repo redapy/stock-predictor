@@ -55,6 +55,6 @@ export async function fetchReport(data: string) {
     });
     return completion?.choices?.[0]?.message.content;
   } catch (e) {
-    return { error: (e as Error).message || "Failed to generate report" };
+    throw new Error((e as Error).message || "Failed to generate report");
   }
 }
